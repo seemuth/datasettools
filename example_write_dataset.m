@@ -9,6 +9,6 @@ data(:,3) = data(:,1) + data(:,2);
 
 colnames = {'X', 'Y', 'X_plus_Y'};
 
-decimaldigits = [3, 4, 2];
+precisions = [3, 4, 2];
 
-write_dataset('example_write_dataset.tsv', data, colnames, decimaldigits)
+write_dataset('example_write_dataset.tsv', data, colnames, precisions)
