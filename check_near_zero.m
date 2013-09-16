@@ -22,9 +22,10 @@ function [num_near_zero] = check_near_zero(data, epsilon, include_cols)
     indices = sortrows(find_near_zero(data, epsilon), [1, 2]);
 
     si = size(indices);
-    num_near_zero = si(1);
+    imax = si(1);
+    num_near_zero = 0;
 
-    for i = 1:num_near_zero
+    for i = 1:imax
         row = indices(i,1);
         col = indices(i,2);
 
@@ -35,5 +36,6 @@ function [num_near_zero] = check_near_zero(data, epsilon, include_cols)
         end
 
         print_near_zero(row, col);
+        num_near_zero = num_near_zero + 1;
     end
 end
