@@ -1,5 +1,10 @@
-function [num_near_zero] = check_near_zero(data, epsilon)
+function [num_near_zero] = check_near_zero(data, epsilon, include_cols)
 %CHECK_NEAR_ZERO Check data matrix for values within epsilon of 0.0
+%
+%   Arguments:
+%   data -- check values in this matrix for nearness to zero
+%   epsilon -- ``nearness'' parameter
+%   include_cols -- if defined, only check values in these columns
 %
 %   Return the number of values that were near zero.
 
@@ -22,6 +27,13 @@ function [num_near_zero] = check_near_zero(data, epsilon)
     for i = 1:num_near_zero
         row = indices(i,1);
         col = indices(i,2);
+
+        if exist('include_cols', 'var')
+            if ~ismember(col, include_cols)
+                continue
+            end
+        end
+
         print_near_zero(row, col);
     end
 end
