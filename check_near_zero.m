@@ -19,7 +19,7 @@ function [num_near_zero] = check_near_zero(data, epsilon, include_cols)
             row, col, data(row, col))
     end
 
-    indices = find_near_zero(data, epsilon);
+    indices = sortrows(find_near_zero(data, epsilon), [1, 2]);
 
     si = size(indices);
     num_near_zero = si(1);
