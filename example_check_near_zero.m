@@ -16,6 +16,7 @@ data(8:12,2) = linspace(-0.25, 0.25, 5);
 
 data
 
+% Check for values near zero in all columns.
 num_near_zero = check_near_zero(data, 0.25);
 fprintf('\nNumber of values near zero: %d\n', num_near_zero);
 
@@ -24,6 +25,7 @@ fprintf('\n%s\n', sep);
 for col = 1:2
     fprintf('IN COLUMN %d:\n', col);
 
+    % Check for values near zero in only specified column(s).
     num_near_zero = check_near_zero(data, 0.25, [col]);
     fprintf('\nNumber of values in col %d near zero: %d\n', ...
         col, num_near_zero);
