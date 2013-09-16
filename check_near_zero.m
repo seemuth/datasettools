@@ -15,7 +15,7 @@ function [num_near_zero] = check_near_zero(data, epsilon, include_cols)
     end
 
     function print_near_zero(row, col)
-        fprintf('Value at row %2d and col %2d near zero: %+0.6f\n', ...
+        fprintf('Value at row %2d and col %2d near zero: %g\n', ...
             row, col, data(row, col))
     end
 
